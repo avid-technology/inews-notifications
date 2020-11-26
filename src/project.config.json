@@ -1,0 +1,18 @@
+{
+   "identity": {
+      "description": "give notification if story was changed",
+      "build": "1",
+      "version": "0.0.1"
+   },
+   "signing": {
+      "login": "",
+      "developerID": "1",
+      "organization": "Avid",
+      "privateKeyPath": ""
+   },
+   "connection": {
+      "hostIp": "CloudUX_HOST_IP",
+      "hostPort": "",
+      "proxyPort": "8080"
+   }
+}
