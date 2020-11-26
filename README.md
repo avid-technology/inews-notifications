@@ -51,11 +51,11 @@ when story has changed:
 ```
 ### How to use CloudUX plugin
 Appearance of the plugin:
-![inews_appearance](/uploads/d40f4facc5447f6d17750d2188750c38/inews_appearance.PNG)
+![inews_appearance](https://user-images.githubusercontent.com/50831927/100333102-dce05f00-2fda-11eb-8a35-ba9181e6007e.PNG)
 To subscribe to the specific queue add the queue ID into the field and click the "Subscribe" button:
-![subscribe](/uploads/b00cea206e8438a4c3e472cf9d487eee/subscribe.PNG)
+![subscribe](https://user-images.githubusercontent.com/50831927/100333202-f8e40080-2fda-11eb-9854-6872e6dc75e4.PNG)
 Make changes in the INEWS story of the queue you've subscribed to see the notification:
-![notifications](/uploads/70dbde9a529c48869a02554669e72073/notifications.PNG)
+![notifications](https://user-images.githubusercontent.com/50831927/100333166-ef5a9880-2fda-11eb-9eaa-dc4d7cfcb9db.PNG)
 Click "Clear all" button to delete all notifications from the list.
 
 ### Prerequisite
