@@ -38,14 +38,15 @@ async function get_url(upstream, path, headers, method, postData = '') {
                 headers: headers,
             },
 
-            (result) => {
-            	if (result.statusCode !== 200 && result.statusCode !== 201) {
-            		alert('Error ' + result.statusCode + ' ' + result.statusMessage);
-            		reject(new Error("Error " + result.statusMessage));
-            	}
+            (result) => { 	
                 result.on('data', (d) => {
                     const result_link = JSON.parse(d);
-                    resolve(result_link);
+                    if (result.statusCode !== 200 && result.statusCode !== 201) {
+                        alert('Error ' + result_link.status + ' ' + result_link.message);
+                        reject(new Error("Error " + result_link.message));
+                    } else {
+                        resolve(result_link); 
+                    }
                 });
             });
 
