@@ -82,24 +82,8 @@ export default class ApplicationContainer {
 
 
         btn.addEventListener('click', function () {
-            const div_message = document.createElement('DIV');
-            div_message.classList.add(styles.message);
-            div2.appendChild(div_message);
-            
-            const p_message = document.createElement('P');
             const q_name = input.value;
             main_func(q_name, table, no_notific_p);
-            p_message.innerHTML = 'You\'ve subscribed to ' + q_name;
-            const close_btn = document.createElement('BUTTON');
-            close_btn.classList.add(styles.close_btn);
-            close_btn.innerHTML = 'X';
-            
-            close_btn.addEventListener('click', function () {
-                div_message.remove();
-            });
-
-            div_message.appendChild(p_message);
-            div_message.appendChild(close_btn);
         });
 
         clear_btn.addEventListener('click', function () {
