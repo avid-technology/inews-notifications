@@ -1,3 +1,4 @@
+/* eslint-disable */
 import * as styles from './index.scss';
 const https = require('https');
 
@@ -38,6 +39,10 @@ async function get_url(upstream, path, headers, method, postData = '') {
             },
 
             (result) => {
+            	if (result.statusCode !== 200 && result.statusCode !== 201) {
+            		alert('Error ' + result.statusCode + ' ' + result.statusMessage);
+            		reject(new Error("Error " + result.statusMessage));
+            	}
                 result.on('data', (d) => {
                     const result_link = JSON.parse(d);
                     resolve(result_link);
@@ -45,7 +50,8 @@ async function get_url(upstream, path, headers, method, postData = '') {
             });
 
         url_request.on('error', (error) => {
-            console.log('ERROR ' + error);
+            alert('Error ' + error);
+            reject(new Error("Error " + error));
         });
         url_request.write(postData);
 
@@ -86,7 +92,10 @@ const main_func = async (story_id, table, no_notific_p) => {
     inews_subscribe_to_queue = inews_subscribe_to_queue._links['ia:subscribe-to-queue-notifications-by-id'].href;
     inews_subscribe_to_queue = inews_subscribe_to_queue.split('{')[0];
 
-    await get_url(cloud_ux_ip, new URL(inews_subscribe_to_queue).pathname + story_id + '/notifications/subscribe', request_headers, 'POST');
+    const subscribed = await get_url(cloud_ux_ip, new URL(inews_subscribe_to_queue).pathname + story_id + '/notifications/subscribe', request_headers, 'POST');
+    if (subscribed.status == 'active') {
+    	alert("You've subscribed to " + story_id + "!");
+    }
     
     const wsock = new WebSocket('wss://' + cloud_ux_ip + '/notifications?consumer=auth-token');
     
